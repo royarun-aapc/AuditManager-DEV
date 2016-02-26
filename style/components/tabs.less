@@ -1,0 +1,65 @@
+
+//
+// Tabs Component
+// --------------------------------------------------
+
+nav.tabs{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+	margin-bottom: @spacing-margin-md;
+	@media screen and (min-width: @screen-md) {
+		flex-direction: row;
+	}
+	.tab {
+		flex: 0 1 auto;
+		text-align: center;
+		padding: @spacing-padding-md @spacing-padding-md @spacing-padding-sm;
+		border-bottom: solid 2px @color-gray-lighter;
+		font-weight: @button-text-weight;
+		color: @color-gray;
+		&:first-child{
+			padding-left: 1.5rem;
+		}
+		&:hover {
+			color: @color-gray-dark;
+			border-color: @color-gray-dark;
+			box-shadow: @link-box-shadow @color-gray-dark;
+		}
+		&.active {
+			border-color: @color-primary;
+			color: @color-primary;
+			pointer-events: none; 
+			&:hover {
+				box-shadow: none;
+			}
+		}
+		&.disabled {
+			pointer-events: none;
+			color: @color-gray-lighter;
+			&:hover {
+				box-shadow: none;
+			}
+		}
+		&.tail {
+			display: none;
+			@media screen and (min-width: @screen-md) {
+				display: block;
+				pointer-events: none;
+				color: @color-gray-lighter;
+				flex: 1 0 auto;
+				&:hover {
+					box-shadow: none;
+				}
+			}
+			
+		}
+	}
+}
+
+.main-content > nav.tabs {
+	margin: 2rem -@main-content-padding; //Remove white space around tabs
+}
